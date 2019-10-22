@@ -14,7 +14,7 @@
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.77
-        Device            :  PIC16F18323
+        Device            :  PIC16F18326
         Driver Version    :  2.00
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.05 and above or later
@@ -80,17 +80,17 @@ void WDT_Initialize(void)
 
 void PMD_Initialize(void)
 {
-    // CLKRMD CLKR enabled; FVRMD FVR enabled; IOCMD IOC enabled; NVMMD NVM enabled; 
+    // CLKRMD CLKR enabled; SYSCMD SYSCLK enabled; FVRMD FVR enabled; IOCMD IOC enabled; NVMMD NVM enabled; 
     PMD0 = 0x00;
-    // TMR0MD TMR0 enabled; TMR1MD TMR1 enabled; TMR2MD TMR2 enabled; NCOMD DDS(NCO) enabled; 
+    // TMR0MD TMR0 enabled; TMR1MD TMR1 enabled; TMR4MD TMR4 enabled; TMR5MD TMR5 enabled; TMR2MD TMR2 enabled; TMR3MD TMR3 enabled; NCOMD DDS(NCO) enabled; TMR6MD TMR6 enabled; 
     PMD1 = 0x00;
     // DACMD DAC enabled; CMP1MD CMP1 enabled; ADCMD ADC enabled; CMP2MD CMP2 enabled; 
     PMD2 = 0x00;
-    // CCP2MD CCP2 enabled; CCP1MD CCP1 enabled; PWM6MD PWM6 enabled; PWM5MD PWM5 enabled; CWG1MD CWG1 enabled; 
+    // CCP2MD CCP2 enabled; CCP1MD CCP1 enabled; CCP4MD CCP4 enabled; CCP3MD CCP3 enabled; PWM6MD PWM6 enabled; PWM5MD PWM5 enabled; CWG2MD CWG2 enabled; CWG1MD CWG1 enabled; 
     PMD3 = 0x00;
-    // MSSP1MD MSSP1 enabled; UART1MD EUSART enabled; 
+    // MSSP1MD MSSP1 enabled; UART1MD EUSART enabled; MSSP2MD MSSP2 enabled; 
     PMD4 = 0x00;
-    // DSMMD DSM enabled; CLC1MD CLC1 enabled; CLC2MD CLC2 enabled; 
+    // DSMMD DSM enabled; CLC3MD CLC3 enabled; CLC4MD CLC4 enabled; CLC1MD CLC1 enabled; CLC2MD CLC2 enabled; 
     PMD5 = 0x00;
 }
 /**
