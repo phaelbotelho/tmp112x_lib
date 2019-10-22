@@ -47,8 +47,8 @@
 #include "mcc_generated_files/mcc.h"
 #include "tmp122x.h"
 
-// Ported from: https://github.com/sparkfun/SparkFun_TMP102_Arduino_Library/tree/master/src
-// Based on: https://github.com/ControlEverythingCommunity/TMP112/blob/master/C/TMP112.c
+// Ported from:    https://github.com/sparkfun/SparkFun_TMP102_Arduino_Library/tree/master/src
+// Based on:       https://github.com/ControlEverythingCommunity/TMP112/blob/master/Arduino/TMP112.ino
 // By Raphael Pereira
 // Good reference: https://github.com/ControlEverythingCommunity/TMP112/blob/master/C/TMP112.c
 //                 http://www.ti.com/lit/ds/symlink/tmp112.pdf
