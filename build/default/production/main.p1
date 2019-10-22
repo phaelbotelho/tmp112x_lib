@@ -5,6 +5,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "71 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 71: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
+"113 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\c99\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"24 ./tmp122x.h
+[; ;./tmp122x.h: 24: void TMP112x_Init();
+[v _TMP112x_Init `(v ~T0 @X0 0 e? ]
+[v F5125 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic.h
+[v __delay `JF5125 ~T0 @X0 0 e ]
+[p i __delay ]
+"26 ./tmp122x.h
+[; ;./tmp122x.h: 26: float TMP112x_ReadTemp();
+[v _TMP112x_ReadTemp `(f ~T0 @X0 0 e? ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f18323.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f18323.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -792,30 +804,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./mcc_generated_files/i2c1_driver.h: 79: void (*i2c1_driver_i2cISR)(void);
 [v _i2c1_driver_i2cISR `*F5221 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"49 main.c
-[; ;main.c: 49: void main(void)
+"53 main.c
+[; ;main.c: 53: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"50
-[; ;main.c: 50: {
+"54
+[; ;main.c: 54: {
 {
 [e :U _main ]
 [f ]
-"52
-[; ;main.c: 52:     SYSTEM_Initialize();
+"55
+[; ;main.c: 55:     float temperature = 0;
+[v _temperature `f ~T0 @X0 1 a ]
+[e = _temperature -> -> 0 `i `f ]
+"58
+[; ;main.c: 58:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"70
-[; ;main.c: 70:     while (1)
+"76
+[; ;main.c: 76:     printf("TMP112x Temperature Sensor Lib Test\n");
+[e ( _printf :s 1C ]
+"78
+[; ;main.c: 78:     TMP112x_Init();
+[e ( _TMP112x_Init ..  ]
+"79
+[; ;main.c: 79:     _delay((unsigned long)((50)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"81
+[; ;main.c: 81:     while(1)
 [e :U 707 ]
-"71
-[; ;main.c: 71:     {
+"82
+[; ;main.c: 82:     {
 {
-"73
-[; ;main.c: 73:     }
+"83
+[; ;main.c: 83:         temperature = TMP112x_ReadTemp();
+[e = _temperature ( _TMP112x_ReadTemp ..  ]
+"84
+[; ;main.c: 84:         printf("T: %3.2fC", temperature);
+[e ( _printf , (. :s 2C -> _temperature `d ]
+"85
+[; ;main.c: 85:         _delay((unsigned long)((50)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"86
+[; ;main.c: 86:     }
 }
 [e :U 706 ]
 [e $U 707  ]
 [e :U 708 ]
-"74
-[; ;main.c: 74: }
+"87
+[; ;main.c: 87: }
 [e :UE 705 ]
 }
+[p f _printf 8495104 ]
+[a 2C 84 58 32 37 51 46 50 102 67 0 ]
+[a 1C 84 77 80 49 49 50 120 32 84 101 109 112 101 114 97 116 117 114 101 32 83 101 110 115 111 114 32 76 105 98 32 84 101 115 116 10 0 ]

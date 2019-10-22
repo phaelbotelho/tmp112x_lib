@@ -40,14 +40,20 @@
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
 */
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 
 #include "mcc_generated_files/mcc.h"
+#include "tmp122x.h"
 
 /*
                          Main application
  */
 void main(void)
 {
+    float temperature = 0;
+    
     // initialize the device
     SYSTEM_Initialize();
     
@@ -66,10 +72,17 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-
-    while (1)
+    
+    printf("TMP112x Temperature Sensor Lib Test\n");
+    
+    TMP112x_Init();
+    __delay_ms(50);
+    
+    while(1)
     {
-        
+        temperature = TMP112x_ReadTemp();
+        printf("T: %3.2fC", temperature);
+        __delay_ms(50);
     }
 }
 /**

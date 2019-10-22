@@ -1,1 +1,1203 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"18 ./my_i2c.h
+[; ;./my_i2c.h: 18: void I2C_Start(void);
+[v _I2C_Start `(v ~T0 @X0 0 ef ]
+"15
+[; ;./my_i2c.h: 15: unsigned char I2C_WriteByte(unsigned char data_out);
+[v _I2C_WriteByte `(uc ~T0 @X0 0 ef1`uc ]
+"20
+[; ;./my_i2c.h: 20: void I2C_Stop(void);
+[v _I2C_Stop `(v ~T0 @X0 0 ef ]
+"19
+[; ;./my_i2c.h: 19: void I2C_RepeatedStart(void);
+[v _I2C_RepeatedStart `(v ~T0 @X0 0 ef ]
+"14
+[; ;./my_i2c.h: 14: unsigned char I2C_ReadByte(unsigned char acknowledge);
+[v _I2C_ReadByte `(uc ~T0 @X0 0 ef1`uc ]
+"11 tmp122x.c
+[; ;tmp122x.c: 11: void TMP112x_Init()
+[v _TMP112x_Init `(v ~T0 @X0 1 ef ]
+"12
+[; ;tmp122x.c: 12: {
+{
+[e :U _TMP112x_Init ]
+[f ]
+"13
+[; ;tmp122x.c: 13:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"14
+[; ;tmp122x.c: 14:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"15
+[; ;tmp122x.c: 15:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"16
+[; ;tmp122x.c: 16:     I2C_WriteByte(0x60);
+[e ( _I2C_WriteByte (1 -> -> 96 `i `uc ]
+"17
+[; ;tmp122x.c: 17:     I2C_WriteByte(0xA0);
+[e ( _I2C_WriteByte (1 -> -> 160 `i `uc ]
+"18
+[; ;tmp122x.c: 18:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"19
+[; ;tmp122x.c: 19: }
+[e :UE 1 ]
+}
+"21
+[; ;tmp122x.c: 21: float TMP112x_ReadTemp()
+[v _TMP112x_ReadTemp `(f ~T0 @X0 1 ef ]
+"22
+[; ;tmp122x.c: 22: {
+{
+[e :U _TMP112x_ReadTemp ]
+[f ]
+"23
+[; ;tmp122x.c: 23:     uint8_t _temp_lo = 0;
+[v __temp_lo `uc ~T0 @X0 1 a ]
+[e = __temp_lo -> -> 0 `i `uc ]
+"24
+[; ;tmp122x.c: 24:     uint8_t _temp_hi = 0;
+[v __temp_hi `uc ~T0 @X0 1 a ]
+[e = __temp_hi -> -> 0 `i `uc ]
+"25
+[; ;tmp122x.c: 25:     int16_t digitalTemp = 0;
+[v _digitalTemp `s ~T0 @X0 1 a ]
+[e = _digitalTemp -> -> 0 `i `s ]
+"27
+[; ;tmp122x.c: 27:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"28
+[; ;tmp122x.c: 28:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"29
+[; ;tmp122x.c: 29:     I2C_WriteByte(0x00);
+[e ( _I2C_WriteByte (1 -> -> 0 `i `uc ]
+"30
+[; ;tmp122x.c: 30:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"31
+[; ;tmp122x.c: 31:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"32
+[; ;tmp122x.c: 32:     _temp_hi = I2C_ReadByte(1);
+[e = __temp_hi ( _I2C_ReadByte (1 -> -> 1 `i `uc ]
+"33
+[; ;tmp122x.c: 33:     _temp_lo = I2C_ReadByte(0);
+[e = __temp_lo ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"34
+[; ;tmp122x.c: 34:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"37
+[; ;tmp122x.c: 37:     if(_temp_lo & 0x01)
+[e $ ! != & -> __temp_lo `i -> 1 `i -> 0 `i 3  ]
+"38
+[; ;tmp122x.c: 38:     {
+{
+"40
+[; ;tmp122x.c: 40:         digitalTemp = ((_temp_hi) << 5) | (_temp_lo >> 3);
+[e = _digitalTemp -> | << -> __temp_hi `i -> 5 `i >> -> __temp_lo `i -> 3 `i `s ]
+"43
+[; ;tmp122x.c: 43:         if(digitalTemp > 0xFFF)
+[e $ ! > -> _digitalTemp `i -> 4095 `i 4  ]
+"44
+[; ;tmp122x.c: 44:         {
+{
+"45
+[; ;tmp122x.c: 45:             digitalTemp |= 0xE000;
+[e =| _digitalTemp -> -> 57344 `ui `s ]
+"46
+[; ;tmp122x.c: 46:         }
+}
+[e :U 4 ]
+"47
+[; ;tmp122x.c: 47:     }
+}
+[e $U 5  ]
+"48
+[; ;tmp122x.c: 48:     else
+[e :U 3 ]
+"49
+[; ;tmp122x.c: 49:     {
+{
+"51
+[; ;tmp122x.c: 51:         digitalTemp = ((_temp_hi) << 4) | (_temp_lo >> 4);
+[e = _digitalTemp -> | << -> __temp_hi `i -> 4 `i >> -> __temp_lo `i -> 4 `i `s ]
+"54
+[; ;tmp122x.c: 54:         if(digitalTemp > 0x7FF)
+[e $ ! > -> _digitalTemp `i -> 2047 `i 6  ]
+"55
+[; ;tmp122x.c: 55:         {
+{
+"56
+[; ;tmp122x.c: 56:             digitalTemp |= 0xF000;
+[e =| _digitalTemp -> -> 61440 `ui `s ]
+"57
+[; ;tmp122x.c: 57:         }
+}
+[e :U 6 ]
+"58
+[; ;tmp122x.c: 58:     }
+}
+[e :U 5 ]
+"60
+[; ;tmp122x.c: 60:    return digitalTemp * 0.0625;
+[e ) -> * -> -> _digitalTemp `i `d .0.0625 `f ]
+[e $UE 2  ]
+"62
+[; ;tmp122x.c: 62: }
+[e :UE 2 ]
+}
+"64
+[; ;tmp122x.c: 64: void TMP112x_SetConversionRate(uint8_t rate)
+[v _TMP112x_SetConversionRate `(v ~T0 @X0 1 ef1`uc ]
+"65
+[; ;tmp122x.c: 65: {
+{
+[e :U _TMP112x_SetConversionRate ]
+"64
+[; ;tmp122x.c: 64: void TMP112x_SetConversionRate(uint8_t rate)
+[v _rate `uc ~T0 @X0 1 r1 ]
+"65
+[; ;tmp122x.c: 65: {
+[f ]
+"66
+[; ;tmp122x.c: 66:     uint8_t registerByte[2];
+[v _registerByte `uc ~T0 @X0 -> 2 `i a ]
+"67
+[; ;tmp122x.c: 67:     rate = rate&0x03;
+[e = _rate -> & -> _rate `i -> 3 `i `uc ]
+"70
+[; ;tmp122x.c: 70:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"71
+[; ;tmp122x.c: 71:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"72
+[; ;tmp122x.c: 72:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"73
+[; ;tmp122x.c: 73:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"74
+[; ;tmp122x.c: 74:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"75
+[; ;tmp122x.c: 75:     registerByte[0] = I2C_ReadByte(1);
+[e = *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 1 `i `uc ]
+"76
+[; ;tmp122x.c: 76:     registerByte[1] = I2C_ReadByte(0);
+[e = *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"77
+[; ;tmp122x.c: 77:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"80
+[; ;tmp122x.c: 80:     registerByte[1] &= 0x3F;
+[e =& *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux -> -> 63 `i `uc ]
+"81
+[; ;tmp122x.c: 81:     registerByte[1] |= rate<<6;
+[e =| *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux -> << -> _rate `i -> 6 `i `uc ]
+"84
+[; ;tmp122x.c: 84:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"85
+[; ;tmp122x.c: 85:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"86
+[; ;tmp122x.c: 86:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"87
+[; ;tmp122x.c: 87:     I2C_WriteByte(registerByte[0]);
+[e ( _I2C_WriteByte (1 *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ]
+"88
+[; ;tmp122x.c: 88:     I2C_WriteByte(registerByte[1]);
+[e ( _I2C_WriteByte (1 *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ]
+"89
+[; ;tmp122x.c: 89:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"90
+[; ;tmp122x.c: 90: }
+[e :UE 7 ]
+}
+"93
+[; ;tmp122x.c: 93: void TMP112x_SetExtendedMode(_Bool mode)
+[v _TMP112x_SetExtendedMode `(v ~T0 @X0 1 ef1`a ]
+"94
+[; ;tmp122x.c: 94: {
+{
+[e :U _TMP112x_SetExtendedMode ]
+"93
+[; ;tmp122x.c: 93: void TMP112x_SetExtendedMode(_Bool mode)
+[v _mode `a ~T0 @X0 1 r1 ]
+"94
+[; ;tmp122x.c: 94: {
+[f ]
+"95
+[; ;tmp122x.c: 95:     uint8_t registerByte[2];
+[v _registerByte `uc ~T0 @X0 -> 2 `i a ]
+"98
+[; ;tmp122x.c: 98:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"99
+[; ;tmp122x.c: 99:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"100
+[; ;tmp122x.c: 100:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"101
+[; ;tmp122x.c: 101:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"102
+[; ;tmp122x.c: 102:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"103
+[; ;tmp122x.c: 103:     registerByte[0] = I2C_ReadByte(1);
+[e = *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 1 `i `uc ]
+"104
+[; ;tmp122x.c: 104:     registerByte[1] = I2C_ReadByte(0);
+[e = *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"105
+[; ;tmp122x.c: 105:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"108
+[; ;tmp122x.c: 108:     registerByte[1] &= 0xEF;
+[e =& *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux -> -> 239 `i `uc ]
+"109
+[; ;tmp122x.c: 109:     registerByte[1] |= mode<<4;
+[e =| *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux -> << -> _mode `i -> 4 `i `uc ]
+"112
+[; ;tmp122x.c: 112:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"113
+[; ;tmp122x.c: 113:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"114
+[; ;tmp122x.c: 114:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"115
+[; ;tmp122x.c: 115:     I2C_WriteByte(registerByte[0]);
+[e ( _I2C_WriteByte (1 *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ]
+"116
+[; ;tmp122x.c: 116:     I2C_WriteByte(registerByte[1]);
+[e ( _I2C_WriteByte (1 *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ]
+"117
+[; ;tmp122x.c: 117:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"118
+[; ;tmp122x.c: 118: }
+[e :UE 8 ]
+}
+"121
+[; ;tmp122x.c: 121: void TMP112x_Sleep(void)
+[v _TMP112x_Sleep `(v ~T0 @X0 1 ef ]
+"122
+[; ;tmp122x.c: 122: {
+{
+[e :U _TMP112x_Sleep ]
+[f ]
+"123
+[; ;tmp122x.c: 123:     uint8_t registerByte;
+[v _registerByte `uc ~T0 @X0 1 a ]
+"126
+[; ;tmp122x.c: 126:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"127
+[; ;tmp122x.c: 127:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"128
+[; ;tmp122x.c: 128:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"129
+[; ;tmp122x.c: 129:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"130
+[; ;tmp122x.c: 130:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"131
+[; ;tmp122x.c: 131:     registerByte = I2C_ReadByte(0);
+[e = _registerByte ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"132
+[; ;tmp122x.c: 132:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"134
+[; ;tmp122x.c: 134:     registerByte |= 0x01;
+[e =| _registerByte -> -> 1 `i `uc ]
+"137
+[; ;tmp122x.c: 137:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"138
+[; ;tmp122x.c: 138:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"139
+[; ;tmp122x.c: 139:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"140
+[; ;tmp122x.c: 140:     I2C_WriteByte(registerByte);
+[e ( _I2C_WriteByte (1 _registerByte ]
+"141
+[; ;tmp122x.c: 141:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"142
+[; ;tmp122x.c: 142: }
+[e :UE 9 ]
+}
+"145
+[; ;tmp122x.c: 145: void TMP112x_Wakeup(void)
+[v _TMP112x_Wakeup `(v ~T0 @X0 1 ef ]
+"146
+[; ;tmp122x.c: 146: {
+{
+[e :U _TMP112x_Wakeup ]
+[f ]
+"147
+[; ;tmp122x.c: 147:     uint8_t registerByte;
+[v _registerByte `uc ~T0 @X0 1 a ]
+"150
+[; ;tmp122x.c: 150:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"151
+[; ;tmp122x.c: 151:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"152
+[; ;tmp122x.c: 152:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"153
+[; ;tmp122x.c: 153:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"154
+[; ;tmp122x.c: 154:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"155
+[; ;tmp122x.c: 155:     registerByte = I2C_ReadByte(0);
+[e = _registerByte ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"156
+[; ;tmp122x.c: 156:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"158
+[; ;tmp122x.c: 158:     registerByte &= 0xFE;
+[e =& _registerByte -> -> 254 `i `uc ]
+"161
+[; ;tmp122x.c: 161:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"162
+[; ;tmp122x.c: 162:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"163
+[; ;tmp122x.c: 163:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"164
+[; ;tmp122x.c: 164:     I2C_WriteByte(registerByte);
+[e ( _I2C_WriteByte (1 _registerByte ]
+"165
+[; ;tmp122x.c: 165:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"166
+[; ;tmp122x.c: 166: }
+[e :UE 10 ]
+}
+"169
+[; ;tmp122x.c: 169: void TMP112x_SetAlertPolarity(_Bool polarity)
+[v _TMP112x_SetAlertPolarity `(v ~T0 @X0 1 ef1`a ]
+"170
+[; ;tmp122x.c: 170: {
+{
+[e :U _TMP112x_SetAlertPolarity ]
+"169
+[; ;tmp122x.c: 169: void TMP112x_SetAlertPolarity(_Bool polarity)
+[v _polarity `a ~T0 @X0 1 r1 ]
+"170
+[; ;tmp122x.c: 170: {
+[f ]
+"171
+[; ;tmp122x.c: 171:     uint8_t registerByte;
+[v _registerByte `uc ~T0 @X0 1 a ]
+"174
+[; ;tmp122x.c: 174:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"175
+[; ;tmp122x.c: 175:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"176
+[; ;tmp122x.c: 176:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"177
+[; ;tmp122x.c: 177:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"178
+[; ;tmp122x.c: 178:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"179
+[; ;tmp122x.c: 179:     registerByte = I2C_ReadByte(0);
+[e = _registerByte ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"180
+[; ;tmp122x.c: 180:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"183
+[; ;tmp122x.c: 183:     registerByte &= 0xFB;
+[e =& _registerByte -> -> 251 `i `uc ]
+"184
+[; ;tmp122x.c: 184:     registerByte |= polarity<<2;
+[e =| _registerByte -> << -> _polarity `i -> 2 `i `uc ]
+"187
+[; ;tmp122x.c: 187:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"188
+[; ;tmp122x.c: 188:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"189
+[; ;tmp122x.c: 189:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"190
+[; ;tmp122x.c: 190:     I2C_WriteByte(registerByte);
+[e ( _I2C_WriteByte (1 _registerByte ]
+"191
+[; ;tmp122x.c: 191:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"192
+[; ;tmp122x.c: 192: }
+[e :UE 11 ]
+}
+"195
+[; ;tmp122x.c: 195: _Bool TMP112x_Alert(void)
+[v _TMP112x_Alert `(a ~T0 @X0 1 ef ]
+"196
+[; ;tmp122x.c: 196: {
+{
+[e :U _TMP112x_Alert ]
+[f ]
+"197
+[; ;tmp122x.c: 197:   uint8_t registerByte;
+[v _registerByte `uc ~T0 @X0 1 a ]
+"200
+[; ;tmp122x.c: 200:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"201
+[; ;tmp122x.c: 201:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"202
+[; ;tmp122x.c: 202:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"203
+[; ;tmp122x.c: 203:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"204
+[; ;tmp122x.c: 204:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"205
+[; ;tmp122x.c: 205:     registerByte = I2C_ReadByte(0);
+[e = _registerByte ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"206
+[; ;tmp122x.c: 206:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"208
+[; ;tmp122x.c: 208:     registerByte &= 0x20;
+[e =& _registerByte -> -> 32 `i `uc ]
+"209
+[; ;tmp122x.c: 209:     return registerByte>>5;
+[e ) -> >> -> _registerByte `i -> 5 `i `a ]
+[e $UE 12  ]
+"210
+[; ;tmp122x.c: 210: }
+[e :UE 12 ]
+}
+"213
+[; ;tmp122x.c: 213: void TMP112x_SetLowTempC(float temperature)
+[v _TMP112x_SetLowTempC `(v ~T0 @X0 1 ef1`f ]
+"214
+[; ;tmp122x.c: 214: {
+{
+[e :U _TMP112x_SetLowTempC ]
+"213
+[; ;tmp122x.c: 213: void TMP112x_SetLowTempC(float temperature)
+[v _temperature `f ~T0 @X0 1 r1 ]
+"214
+[; ;tmp122x.c: 214: {
+[f ]
+"215
+[; ;tmp122x.c: 215:   uint8_t registerByte[2];
+[v _registerByte `uc ~T0 @X0 -> 2 `i a ]
+"216
+[; ;tmp122x.c: 216:   _Bool extendedMode;
+[v _extendedMode `a ~T0 @X0 1 a ]
+"219
+[; ;tmp122x.c: 219:   if(temperature > 150.0f)
+[e $ ! > _temperature -> .150.0 `f 14  ]
+"220
+[; ;tmp122x.c: 220:   {
+{
+"221
+[; ;tmp122x.c: 221:     temperature = 150.0f;
+[e = _temperature -> .150.0 `f ]
+"222
+[; ;tmp122x.c: 222:   }
+}
+[e :U 14 ]
+"223
+[; ;tmp122x.c: 223:   if(temperature < -55.0)
+[e $ ! < -> _temperature `d -U .55.0 15  ]
+"224
+[; ;tmp122x.c: 224:   {
+{
+"225
+[; ;tmp122x.c: 225:     temperature = -55.0f;
+[e = _temperature -U -> .55.0 `f ]
+"226
+[; ;tmp122x.c: 226:   }
+}
+[e :U 15 ]
+"229
+[; ;tmp122x.c: 229:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"230
+[; ;tmp122x.c: 230:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"231
+[; ;tmp122x.c: 231:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"232
+[; ;tmp122x.c: 232:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"233
+[; ;tmp122x.c: 233:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"234
+[; ;tmp122x.c: 234:     registerByte[0] = I2C_ReadByte(1);
+[e = *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 1 `i `uc ]
+"235
+[; ;tmp122x.c: 235:     registerByte[1] = I2C_ReadByte(0);
+[e = *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"236
+[; ;tmp122x.c: 236:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"238
+[; ;tmp122x.c: 238:     extendedMode = (registerByte[1]&0x10) >> 4;
+[e = _extendedMode -> >> & -> *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 16 `i -> 4 `i `a ]
+"242
+[; ;tmp122x.c: 242:     temperature = temperature/0.0625;
+[e = _temperature -> / -> _temperature `d .0.0625 `f ]
+"245
+[; ;tmp122x.c: 245:     if(extendedMode)
+[e $ ! != -> _extendedMode `i -> 0 `i 16  ]
+"246
+[; ;tmp122x.c: 246:     {
+{
+"249
+[; ;tmp122x.c: 249:     }
+}
+[e $U 17  ]
+"250
+[; ;tmp122x.c: 250:     else
+[e :U 16 ]
+"251
+[; ;tmp122x.c: 251:     {
+{
+"254
+[; ;tmp122x.c: 254:     }
+}
+[e :U 17 ]
+"257
+[; ;tmp122x.c: 257:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"258
+[; ;tmp122x.c: 258:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"259
+[; ;tmp122x.c: 259:     I2C_WriteByte(0x02);
+[e ( _I2C_WriteByte (1 -> -> 2 `i `uc ]
+"260
+[; ;tmp122x.c: 260:     I2C_WriteByte(registerByte[0]);
+[e ( _I2C_WriteByte (1 *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ]
+"261
+[; ;tmp122x.c: 261:     I2C_WriteByte(registerByte[1]);
+[e ( _I2C_WriteByte (1 *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ]
+"262
+[; ;tmp122x.c: 262:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"263
+[; ;tmp122x.c: 263: }
+[e :UE 13 ]
+}
+"266
+[; ;tmp122x.c: 266: void TMP112x_SetHighTempC(float temperature)
+[v _TMP112x_SetHighTempC `(v ~T0 @X0 1 ef1`f ]
+"267
+[; ;tmp122x.c: 267: {
+{
+[e :U _TMP112x_SetHighTempC ]
+"266
+[; ;tmp122x.c: 266: void TMP112x_SetHighTempC(float temperature)
+[v _temperature `f ~T0 @X0 1 r1 ]
+"267
+[; ;tmp122x.c: 267: {
+[f ]
+"268
+[; ;tmp122x.c: 268:   uint8_t registerByte[2];
+[v _registerByte `uc ~T0 @X0 -> 2 `i a ]
+"269
+[; ;tmp122x.c: 269:   _Bool extendedMode;
+[v _extendedMode `a ~T0 @X0 1 a ]
+"272
+[; ;tmp122x.c: 272:   if(temperature > 150.0f)
+[e $ ! > _temperature -> .150.0 `f 19  ]
+"273
+[; ;tmp122x.c: 273:   {
+{
+"274
+[; ;tmp122x.c: 274:     temperature = 150.0f;
+[e = _temperature -> .150.0 `f ]
+"275
+[; ;tmp122x.c: 275:   }
+}
+[e :U 19 ]
+"276
+[; ;tmp122x.c: 276:   if(temperature < -55.0)
+[e $ ! < -> _temperature `d -U .55.0 20  ]
+"277
+[; ;tmp122x.c: 277:   {
+{
+"278
+[; ;tmp122x.c: 278:     temperature = -55.0f;
+[e = _temperature -U -> .55.0 `f ]
+"279
+[; ;tmp122x.c: 279:   }
+}
+[e :U 20 ]
+"282
+[; ;tmp122x.c: 282:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"283
+[; ;tmp122x.c: 283:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"284
+[; ;tmp122x.c: 284:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"285
+[; ;tmp122x.c: 285:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"286
+[; ;tmp122x.c: 286:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"287
+[; ;tmp122x.c: 287:     registerByte[0] = I2C_ReadByte(1);
+[e = *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 1 `i `uc ]
+"288
+[; ;tmp122x.c: 288:     registerByte[1] = I2C_ReadByte(0);
+[e = *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"289
+[; ;tmp122x.c: 289:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"291
+[; ;tmp122x.c: 291:     extendedMode = (registerByte[1]&0x10)>>4;
+[e = _extendedMode -> >> & -> *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 16 `i -> 4 `i `a ]
+"295
+[; ;tmp122x.c: 295:     temperature = temperature/0.0625;
+[e = _temperature -> / -> _temperature `d .0.0625 `f ]
+"298
+[; ;tmp122x.c: 298:     if(extendedMode)
+[e $ ! != -> _extendedMode `i -> 0 `i 21  ]
+"299
+[; ;tmp122x.c: 299:     {
+{
+"302
+[; ;tmp122x.c: 302:     }
+}
+[e $U 22  ]
+"303
+[; ;tmp122x.c: 303:     else
+[e :U 21 ]
+"304
+[; ;tmp122x.c: 304:     {
+{
+"307
+[; ;tmp122x.c: 307:     }
+}
+[e :U 22 ]
+"310
+[; ;tmp122x.c: 310:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"311
+[; ;tmp122x.c: 311:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"312
+[; ;tmp122x.c: 312:     I2C_WriteByte(0x03);
+[e ( _I2C_WriteByte (1 -> -> 3 `i `uc ]
+"313
+[; ;tmp122x.c: 313:     I2C_WriteByte(registerByte[0]);
+[e ( _I2C_WriteByte (1 *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ]
+"314
+[; ;tmp122x.c: 314:     I2C_WriteByte(registerByte[1]);
+[e ( _I2C_WriteByte (1 *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ]
+"315
+[; ;tmp122x.c: 315:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"316
+[; ;tmp122x.c: 316: }
+[e :UE 18 ]
+}
+"319
+[; ;tmp122x.c: 319: void TMP112x_SetLowTempF(float temperature)
+[v _TMP112x_SetLowTempF `(v ~T0 @X0 1 ef1`f ]
+"320
+[; ;tmp122x.c: 320: {
+{
+[e :U _TMP112x_SetLowTempF ]
+"319
+[; ;tmp122x.c: 319: void TMP112x_SetLowTempF(float temperature)
+[v _temperature `f ~T0 @X0 1 r1 ]
+"320
+[; ;tmp122x.c: 320: {
+[f ]
+"321
+[; ;tmp122x.c: 321:   temperature = (temperature - 32)*5/9;
+[e = _temperature / * - _temperature -> -> 32 `i `f -> -> 5 `i `f -> -> 9 `i `f ]
+"322
+[; ;tmp122x.c: 322:   TMP112x_SetLowTempC(temperature);
+[e ( _TMP112x_SetLowTempC (1 _temperature ]
+"323
+[; ;tmp122x.c: 323: }
+[e :UE 23 ]
+}
+"326
+[; ;tmp122x.c: 326: void TMP112x_SetHighTempF(float temperature)
+[v _TMP112x_SetHighTempF `(v ~T0 @X0 1 ef1`f ]
+"327
+[; ;tmp122x.c: 327: {
+{
+[e :U _TMP112x_SetHighTempF ]
+"326
+[; ;tmp122x.c: 326: void TMP112x_SetHighTempF(float temperature)
+[v _temperature `f ~T0 @X0 1 r1 ]
+"327
+[; ;tmp122x.c: 327: {
+[f ]
+"328
+[; ;tmp122x.c: 328:   temperature = (temperature - 32)*5/9;
+[e = _temperature / * - _temperature -> -> 32 `i `f -> -> 5 `i `f -> -> 9 `i `f ]
+"329
+[; ;tmp122x.c: 329:   TMP112x_SetHighTempC(temperature);
+[e ( _TMP112x_SetHighTempC (1 _temperature ]
+"330
+[; ;tmp122x.c: 330: }
+[e :UE 24 ]
+}
+"333
+[; ;tmp122x.c: 333: float TMP112x_ReadLowTempC(void)
+[v _TMP112x_ReadLowTempC `(f ~T0 @X0 1 ef ]
+"334
+[; ;tmp122x.c: 334: {
+{
+[e :U _TMP112x_ReadLowTempC ]
+[f ]
+"335
+[; ;tmp122x.c: 335:   uint8_t registerByte[2];
+[v _registerByte `uc ~T0 @X0 -> 2 `i a ]
+"336
+[; ;tmp122x.c: 336:   _Bool extendedMode;
+[v _extendedMode `a ~T0 @X0 1 a ]
+"337
+[; ;tmp122x.c: 337:   int16_t digitalTemp;
+[v _digitalTemp `s ~T0 @X0 1 a ]
+"338
+[; ;tmp122x.c: 338:   float temperature;
+[v _temperature `f ~T0 @X0 1 a ]
+"341
+[; ;tmp122x.c: 341:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"342
+[; ;tmp122x.c: 342:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"343
+[; ;tmp122x.c: 343:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"344
+[; ;tmp122x.c: 344:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"345
+[; ;tmp122x.c: 345:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"346
+[; ;tmp122x.c: 346:     registerByte[0] = I2C_ReadByte(1);
+[e = *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 1 `i `uc ]
+"347
+[; ;tmp122x.c: 347:     registerByte[1] = I2C_ReadByte(0);
+[e = *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"348
+[; ;tmp122x.c: 348:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"350
+[; ;tmp122x.c: 350:     extendedMode = (registerByte[1]&0x10) >> 4;
+[e = _extendedMode -> >> & -> *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 16 `i -> 4 `i `a ]
+"352
+[; ;tmp122x.c: 352:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"353
+[; ;tmp122x.c: 353:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"354
+[; ;tmp122x.c: 354:     I2C_WriteByte(0x02);
+[e ( _I2C_WriteByte (1 -> -> 2 `i `uc ]
+"355
+[; ;tmp122x.c: 355:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"356
+[; ;tmp122x.c: 356:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"357
+[; ;tmp122x.c: 357:     registerByte[0] = I2C_ReadByte(1);
+[e = *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 1 `i `uc ]
+"358
+[; ;tmp122x.c: 358:     registerByte[1] = I2C_ReadByte(0);
+[e = *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"359
+[; ;tmp122x.c: 359:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"361
+[; ;tmp122x.c: 361:   if(extendedMode)
+[e $ ! != -> _extendedMode `i -> 0 `i 26  ]
+"362
+[; ;tmp122x.c: 362:   {
+{
+"364
+[; ;tmp122x.c: 364:     digitalTemp = ((registerByte[0]) << 5) | (registerByte[1] >> 3);
+[e = _digitalTemp -> | << -> *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 5 `i >> -> *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 3 `i `s ]
+"367
+[; ;tmp122x.c: 367:     if(digitalTemp > 0xFFF)
+[e $ ! > -> _digitalTemp `i -> 4095 `i 27  ]
+"368
+[; ;tmp122x.c: 368:  {
+{
+"369
+[; ;tmp122x.c: 369:       digitalTemp |= 0xE000;
+[e =| _digitalTemp -> -> 57344 `ui `s ]
+"370
+[; ;tmp122x.c: 370:     }
+}
+[e :U 27 ]
+"371
+[; ;tmp122x.c: 371:   }
+}
+[e $U 28  ]
+"372
+[; ;tmp122x.c: 372:   else
+[e :U 26 ]
+"373
+[; ;tmp122x.c: 373:   {
+{
+"375
+[; ;tmp122x.c: 375:     digitalTemp = ((registerByte[0]) << 4) | (registerByte[1] >> 4);
+[e = _digitalTemp -> | << -> *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 4 `i >> -> *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 4 `i `s ]
+"378
+[; ;tmp122x.c: 378:     if(digitalTemp > 0x7FF)
+[e $ ! > -> _digitalTemp `i -> 2047 `i 29  ]
+"379
+[; ;tmp122x.c: 379:  {
+{
+"380
+[; ;tmp122x.c: 380:       digitalTemp |= 0xF000;
+[e =| _digitalTemp -> -> 61440 `ui `s ]
+"381
+[; ;tmp122x.c: 381:     }
+}
+[e :U 29 ]
+"382
+[; ;tmp122x.c: 382:   }
+}
+[e :U 28 ]
+"384
+[; ;tmp122x.c: 384:   return digitalTemp*0.0625;
+[e ) -> * -> -> _digitalTemp `i `d .0.0625 `f ]
+[e $UE 25  ]
+"385
+[; ;tmp122x.c: 385: }
+[e :UE 25 ]
+}
+"388
+[; ;tmp122x.c: 388: float TMP112x_ReadHighTempC(void)
+[v _TMP112x_ReadHighTempC `(f ~T0 @X0 1 ef ]
+"389
+[; ;tmp122x.c: 389: {
+{
+[e :U _TMP112x_ReadHighTempC ]
+[f ]
+"390
+[; ;tmp122x.c: 390:   uint8_t registerByte[2];
+[v _registerByte `uc ~T0 @X0 -> 2 `i a ]
+"391
+[; ;tmp122x.c: 391:   _Bool extendedMode;
+[v _extendedMode `a ~T0 @X0 1 a ]
+"392
+[; ;tmp122x.c: 392:   int16_t digitalTemp;
+[v _digitalTemp `s ~T0 @X0 1 a ]
+"393
+[; ;tmp122x.c: 393:   float temperature;
+[v _temperature `f ~T0 @X0 1 a ]
+"396
+[; ;tmp122x.c: 396:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"397
+[; ;tmp122x.c: 397:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"398
+[; ;tmp122x.c: 398:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"399
+[; ;tmp122x.c: 399:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"400
+[; ;tmp122x.c: 400:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"401
+[; ;tmp122x.c: 401:     registerByte[0] = I2C_ReadByte(1);
+[e = *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 1 `i `uc ]
+"402
+[; ;tmp122x.c: 402:     registerByte[1] = I2C_ReadByte(0);
+[e = *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"403
+[; ;tmp122x.c: 403:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"405
+[; ;tmp122x.c: 405:     extendedMode = (registerByte[1]&0x10) >> 4;
+[e = _extendedMode -> >> & -> *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 16 `i -> 4 `i `a ]
+"408
+[; ;tmp122x.c: 408:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"409
+[; ;tmp122x.c: 409:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"410
+[; ;tmp122x.c: 410:     I2C_WriteByte(0x03);
+[e ( _I2C_WriteByte (1 -> -> 3 `i `uc ]
+"411
+[; ;tmp122x.c: 411:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"412
+[; ;tmp122x.c: 412:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"413
+[; ;tmp122x.c: 413:     registerByte[0] = I2C_ReadByte(1);
+[e = *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 1 `i `uc ]
+"414
+[; ;tmp122x.c: 414:     registerByte[1] = I2C_ReadByte(0);
+[e = *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"415
+[; ;tmp122x.c: 415:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"417
+[; ;tmp122x.c: 417:   if(extendedMode)
+[e $ ! != -> _extendedMode `i -> 0 `i 31  ]
+"418
+[; ;tmp122x.c: 418:   {
+{
+"420
+[; ;tmp122x.c: 420:     digitalTemp = ((registerByte[0]) << 5) | (registerByte[1] >> 3);
+[e = _digitalTemp -> | << -> *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 5 `i >> -> *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 3 `i `s ]
+"423
+[; ;tmp122x.c: 423:     if(digitalTemp > 0xFFF)
+[e $ ! > -> _digitalTemp `i -> 4095 `i 32  ]
+"424
+[; ;tmp122x.c: 424:  {
+{
+"425
+[; ;tmp122x.c: 425:       digitalTemp |= 0xE000;
+[e =| _digitalTemp -> -> 57344 `ui `s ]
+"426
+[; ;tmp122x.c: 426:     }
+}
+[e :U 32 ]
+"427
+[; ;tmp122x.c: 427:   }
+}
+[e $U 33  ]
+"428
+[; ;tmp122x.c: 428:   else
+[e :U 31 ]
+"429
+[; ;tmp122x.c: 429:   {
+{
+"431
+[; ;tmp122x.c: 431:     digitalTemp = ((registerByte[0]) << 4) | (registerByte[1] >> 4);
+[e = _digitalTemp -> | << -> *U + &U _registerByte * -> -> -> 0 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 4 `i >> -> *U + &U _registerByte * -> -> -> 1 `i `ui `ux -> -> # *U &U _registerByte `ui `ux `i -> 4 `i `s ]
+"434
+[; ;tmp122x.c: 434:     if(digitalTemp > 0x7FF)
+[e $ ! > -> _digitalTemp `i -> 2047 `i 34  ]
+"435
+[; ;tmp122x.c: 435:  {
+{
+"436
+[; ;tmp122x.c: 436:       digitalTemp |= 0xF000;
+[e =| _digitalTemp -> -> 61440 `ui `s ]
+"437
+[; ;tmp122x.c: 437:     }
+}
+[e :U 34 ]
+"438
+[; ;tmp122x.c: 438:   }
+}
+[e :U 33 ]
+"441
+[; ;tmp122x.c: 441:   return digitalTemp * 0.0625;
+[e ) -> * -> -> _digitalTemp `i `d .0.0625 `f ]
+[e $UE 30  ]
+"442
+[; ;tmp122x.c: 442: }
+[e :UE 30 ]
+}
+"445
+[; ;tmp122x.c: 445: float TMP112x_ReadLowTempF(void)
+[v _TMP112x_ReadLowTempF `(f ~T0 @X0 1 ef ]
+"446
+[; ;tmp122x.c: 446: {
+{
+[e :U _TMP112x_ReadLowTempF ]
+[f ]
+"447
+[; ;tmp122x.c: 447:   return TMP112x_ReadLowTempC() * 1.8 + 32.0;
+[e ) -> + * -> ( _TMP112x_ReadLowTempC ..  `d .1.8 .32.0 `f ]
+[e $UE 35  ]
+"448
+[; ;tmp122x.c: 448: }
+[e :UE 35 ]
+}
+"451
+[; ;tmp122x.c: 451: float TMP112x_ReadHighTempF(void)
+[v _TMP112x_ReadHighTempF `(f ~T0 @X0 1 ef ]
+"452
+[; ;tmp122x.c: 452: {
+{
+[e :U _TMP112x_ReadHighTempF ]
+[f ]
+"453
+[; ;tmp122x.c: 453:   return TMP112x_ReadHighTempC() * 1.8 + 32.0;
+[e ) -> + * -> ( _TMP112x_ReadHighTempC ..  `d .1.8 .32.0 `f ]
+[e $UE 36  ]
+"454
+[; ;tmp122x.c: 454: }
+[e :UE 36 ]
+}
+"457
+[; ;tmp122x.c: 457: void TMP112x_SetFault(uint8_t faultSetting)
+[v _TMP112x_SetFault `(v ~T0 @X0 1 ef1`uc ]
+"458
+[; ;tmp122x.c: 458: {
+{
+[e :U _TMP112x_SetFault ]
+"457
+[; ;tmp122x.c: 457: void TMP112x_SetFault(uint8_t faultSetting)
+[v _faultSetting `uc ~T0 @X0 1 r1 ]
+"458
+[; ;tmp122x.c: 458: {
+[f ]
+"459
+[; ;tmp122x.c: 459:     uint8_t registerByte;
+[v _registerByte `uc ~T0 @X0 1 a ]
+"461
+[; ;tmp122x.c: 461:     faultSetting = faultSetting&3;
+[e = _faultSetting -> & -> _faultSetting `i -> 3 `i `uc ]
+"464
+[; ;tmp122x.c: 464:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"465
+[; ;tmp122x.c: 465:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"466
+[; ;tmp122x.c: 466:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"467
+[; ;tmp122x.c: 467:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"468
+[; ;tmp122x.c: 468:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"469
+[; ;tmp122x.c: 469:     registerByte = I2C_ReadByte(0);
+[e = _registerByte ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"470
+[; ;tmp122x.c: 470:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"473
+[; ;tmp122x.c: 473:     registerByte &= 0xE7;
+[e =& _registerByte -> -> 231 `i `uc ]
+"474
+[; ;tmp122x.c: 474:     registerByte |= faultSetting << 3;
+[e =| _registerByte -> << -> _faultSetting `i -> 3 `i `uc ]
+"477
+[; ;tmp122x.c: 477:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"478
+[; ;tmp122x.c: 478:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"479
+[; ;tmp122x.c: 479:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"480
+[; ;tmp122x.c: 480:     I2C_WriteByte(registerByte);
+[e ( _I2C_WriteByte (1 _registerByte ]
+"481
+[; ;tmp122x.c: 481:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"482
+[; ;tmp122x.c: 482: }
+[e :UE 37 ]
+}
+"485
+[; ;tmp122x.c: 485: void TMP112x_SetAlertMode(_Bool mode)
+[v _TMP112x_SetAlertMode `(v ~T0 @X0 1 ef1`a ]
+"486
+[; ;tmp122x.c: 486: {
+{
+[e :U _TMP112x_SetAlertMode ]
+"485
+[; ;tmp122x.c: 485: void TMP112x_SetAlertMode(_Bool mode)
+[v _mode `a ~T0 @X0 1 r1 ]
+"486
+[; ;tmp122x.c: 486: {
+[f ]
+"487
+[; ;tmp122x.c: 487:   uint8_t registerByte;
+[v _registerByte `uc ~T0 @X0 1 a ]
+"490
+[; ;tmp122x.c: 490:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"491
+[; ;tmp122x.c: 491:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"492
+[; ;tmp122x.c: 492:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"493
+[; ;tmp122x.c: 493:     I2C_RepeatedStart();
+[e ( _I2C_RepeatedStart ..  ]
+"494
+[; ;tmp122x.c: 494:     I2C_WriteByte(0x90 + 1);
+[e ( _I2C_WriteByte (1 -> + -> 144 `i -> 1 `i `uc ]
+"495
+[; ;tmp122x.c: 495:     registerByte = I2C_ReadByte(0);
+[e = _registerByte ( _I2C_ReadByte (1 -> -> 0 `i `uc ]
+"496
+[; ;tmp122x.c: 496:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"499
+[; ;tmp122x.c: 499:     registerByte &= 0xFD;
+[e =& _registerByte -> -> 253 `i `uc ]
+"500
+[; ;tmp122x.c: 500:     registerByte |= mode << 1;
+[e =| _registerByte -> << -> _mode `i -> 1 `i `uc ]
+"503
+[; ;tmp122x.c: 503:     I2C_Start();
+[e ( _I2C_Start ..  ]
+"504
+[; ;tmp122x.c: 504:     I2C_WriteByte(0x90);
+[e ( _I2C_WriteByte (1 -> -> 144 `i `uc ]
+"505
+[; ;tmp122x.c: 505:     I2C_WriteByte(0x01);
+[e ( _I2C_WriteByte (1 -> -> 1 `i `uc ]
+"506
+[; ;tmp122x.c: 506:     I2C_WriteByte(registerByte);
+[e ( _I2C_WriteByte (1 _registerByte ]
+"507
+[; ;tmp122x.c: 507:     I2C_Stop();
+[e ( _I2C_Stop ..  ]
+"508
+[; ;tmp122x.c: 508: }
+[e :UE 38 ]
+}
