@@ -47,6 +47,10 @@
 #include "mcc_generated_files/mcc.h"
 #include "tmp122x.h"
 
+// Ported from: https://github.com/sparkfun/SparkFun_TMP102_Arduino_Library/tree/master/src
+// Based on: https://github.com/ControlEverythingCommunity/TMP112/blob/master/C/TMP112.c
+// By Raphael Pereira
+
 /*
                          Main application
  */
@@ -82,7 +86,7 @@ void main(void)
     {
         temperature = TMP112x_ReadTemp();
         printf("T: %3.2fC", temperature);
-        __delay_ms(50);
+        __delay_ms(100);
     }
 }
 /**
