@@ -1,10 +1,10 @@
 [p LITE_MODE AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
 [d version 1.1 ]
 [d edition pro ]
-[d chip 16F18323 ]
+[d chip 16F18326 ]
 [d frameptr 6 ]
 "80 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/drivers/i2c_master.c
-[e E5295 . `uc
+[e E6787 . `uc
 I2C_IDLE 0
 I2C_SEND_ADR_READ 1
 I2C_SEND_ADR_WRITE 2
@@ -22,12 +22,12 @@ I2C_RX_DO_NACK_RESTART 13
 I2C_RESET 14
 I2C_ADDRESS_NACK 15
 ]
-[e E5136 . `uc
+[e E6628 . `uc
 I2C_NOERR 0
 I2C_BUSY 1
 I2C_FAIL 2
 ]
-[e E5141 . `uc
+[e E6633 . `uc
 i2c_stop 1
 i2c_restart_read 2
 i2c_restart_write 3
@@ -35,7 +35,7 @@ i2c_continue 4
 i2c_reset_link 5
 ]
 "91
-[e E5313 . `uc
+[e E6805 . `uc
 i2c_dataComplete 0
 i2c_writeCollision 1
 i2c_addressNACK 2
@@ -51,3 +51,973 @@ i2c_restart_write 3
 i2c_continue 4
 i2c_reset_link 5
 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\__fpclassifyf.c
+[v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"72 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\doprnt.c
+[v _pad pad `(i  1 s 2 pad ]
+"319
+[v _efgtoa efgtoa `(i  1 s 2 efgtoa ]
+"670
+[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
+"1368
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\flneg.c
+[v ___flneg __flneg `(d  1 e 4 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\floorf.c
+[v _floorf floorf `(f  1 e 4 0 ]
+"43 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\isdigit.c
+[v _isdigit isdigit `(i  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\isspace.c
+[v _isspace isspace `(i  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\isupper.c
+[v _isupper isupper `(i  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"242
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"7 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\strcpy.c
+[v _strcpy strcpy `(*.5uc  1 e 1 0 ]
+"12 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+"3 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\tolower.c
+[v _tolower tolower `(i  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"53 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"193 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/drivers/i2c_master.c
+[v _i2c_masterOperation i2c_masterOperation `(E6628  1 e 1 0 ]
+"230
+[v _i2c_poller i2c_poller `T(v  1 e 1 0 ]
+"239
+[v _do_I2C_RESET do_I2C_RESET `(E6787  1 s 1 do_I2C_RESET ]
+"247
+[v _do_I2C_IDLE do_I2C_IDLE `(E6787  1 s 1 do_I2C_IDLE ]
+"254
+[v _do_I2C_SEND_RESTART_READ do_I2C_SEND_RESTART_READ `(E6787  1 s 1 do_I2C_SEND_RESTART_READ ]
+"260
+[v _do_I2C_SEND_RESTART_WRITE do_I2C_SEND_RESTART_WRITE `(E6787  1 s 1 do_I2C_SEND_RESTART_WRITE ]
+"266
+[v _do_I2C_SEND_RESTART do_I2C_SEND_RESTART `(E6787  1 s 1 do_I2C_SEND_RESTART ]
+"272
+[v _do_I2C_SEND_STOP do_I2C_SEND_STOP `(E6787  1 s 1 do_I2C_SEND_STOP ]
+"278
+[v _do_I2C_SEND_ADR_READ do_I2C_SEND_ADR_READ `(E6787  1 s 1 do_I2C_SEND_ADR_READ ]
+"285
+[v _do_I2C_SEND_ADR_WRITE do_I2C_SEND_ADR_WRITE `(E6787  1 s 1 do_I2C_SEND_ADR_WRITE ]
+"292
+[v _do_I2C_RCEN do_I2C_RCEN `(E6787  1 s 1 do_I2C_RCEN ]
+"299
+[v _do_I2C_DO_ACK do_I2C_DO_ACK `(E6787  1 s 1 do_I2C_DO_ACK ]
+"305
+[v _do_I2C_DO_NACK_STOP do_I2C_DO_NACK_STOP `(E6787  1 s 1 do_I2C_DO_NACK_STOP ]
+"311
+[v _do_I2C_DO_NACK_RESTART do_I2C_DO_NACK_RESTART `(E6787  1 s 1 do_I2C_DO_NACK_RESTART ]
+"319
+[v _do_I2C_DO_ADDRESS_NACK do_I2C_DO_ADDRESS_NACK `(E6787  1 s 1 do_I2C_DO_ADDRESS_NACK ]
+"333
+[v _do_I2C_TX do_I2C_TX `(E6787  1 s 1 do_I2C_TX ]
+"357
+[v _do_I2C_RX do_I2C_RX `(E6787  1 s 1 do_I2C_RX ]
+"382
+[v _do_I2C_TX_EMPTY do_I2C_TX_EMPTY `(E6787  1 s 1 do_I2C_TX_EMPTY ]
+"419
+[v _i2c_ISR i2c_ISR `(v  1 e 1 0 ]
+"435
+[v _i2c_busCollisionISR i2c_busCollisionISR `(v  1 e 1 0 ]
+"443
+[v _returnStop returnStop `(E6633  1 s 1 returnStop ]
+"448
+[v _returnReset returnReset `(E6633  1 s 1 returnReset ]
+"453
+[v _setCallBack setCallBack `(v  1 s 1 setCallBack ]
+"66 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/eusart.c
+[v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
+"94
+[v _EUSART_is_tx_ready EUSART_is_tx_ready `(a  1 e 1 0 ]
+"99
+[v _EUSART_is_rx_ready EUSART_is_rx_ready `(a  1 e 1 0 ]
+"104
+[v _EUSART_is_tx_done EUSART_is_tx_done `(a  1 e 1 0 ]
+"113
+[v _EUSART_Read EUSART_Read `(uc  1 e 1 0 ]
+"132
+[v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
+"146
+[v _putch putch `(v  1 e 1 0 ]
+"153
+[v _EUSART_DefaultFramingErrorHandler EUSART_DefaultFramingErrorHandler `(v  1 e 1 0 ]
+"155
+[v _EUSART_DefaultOverrunErrorHandler EUSART_DefaultOverrunErrorHandler `(v  1 e 1 0 ]
+"163
+[v _EUSART_DefaultErrorHandler EUSART_DefaultErrorHandler `(v  1 e 1 0 ]
+"166
+[v _EUSART_SetFramingErrorHandler EUSART_SetFramingErrorHandler `(v  1 e 1 0 ]
+"170
+[v _EUSART_SetOverrunErrorHandler EUSART_SetOverrunErrorHandler `(v  1 e 1 0 ]
+"174
+[v _EUSART_SetErrorHandler EUSART_SetErrorHandler `(v  1 e 1 0 ]
+"39 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/i2c1_driver.c
+[v _mssp1_enableIRQ mssp1_enableIRQ `T(v  1 e 1 0 ]
+"44
+[v _mssp1_IRQisEnabled mssp1_IRQisEnabled `T(b  1 e 0 0 ]
+"49
+[v _mssp1_disableIRQ mssp1_disableIRQ `T(v  1 e 1 0 ]
+"54
+[v _mssp1_clearIRQ mssp1_clearIRQ `T(v  1 e 1 0 ]
+"59
+[v _mssp1_setIRQ mssp1_setIRQ `T(v  1 e 1 0 ]
+"69
+[v _mssp1_waitForEvent mssp1_waitForEvent `T(v  1 e 1 0 ]
+"84
+[v _i2c1_driver_open i2c1_driver_open `(b  1 e 0 0 ]
+"142
+[v _i2c1_driver_resetBus i2c1_driver_resetBus `T(v  1 e 1 0 ]
+"147
+[v _i2c1_driver_start i2c1_driver_start `T(v  1 e 1 0 ]
+"152
+[v _i2c1_driver_restart i2c1_driver_restart `T(v  1 e 1 0 ]
+"157
+[v _i2c1_driver_stop i2c1_driver_stop `T(v  1 e 1 0 ]
+"162
+[v _i2c1_driver_isNACK i2c1_driver_isNACK `T(b  1 e 0 0 ]
+"167
+[v _i2c1_driver_startRX i2c1_driver_startRX `T(v  1 e 1 0 ]
+"172
+[v _i2c1_driver_getRXData i2c1_driver_getRXData `T(uc  1 e 1 0 ]
+"187
+[v _i2c1_driver_TXData i2c1_driver_TXData `T(v  1 e 1 0 ]
+"197
+[v _i2c1_driver_sendACK i2c1_driver_sendACK `T(v  1 e 1 0 ]
+"203
+[v _i2c1_driver_sendNACK i2c1_driver_sendNACK `T(v  1 e 1 0 ]
+"254
+[v _i2c1_driver_clearBusCollision i2c1_driver_clearBusCollision `T(v  1 e 1 0 ]
+"259
+[v _i2c1_driver_setBusCollisionISR i2c1_driver_setBusCollisionISR `T(v  1 e 1 0 ]
+"263
+[v _i2c1_driver_setI2cISR i2c1_driver_setI2cISR `T(v  1 e 1 0 ]
+"50 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"61
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+"75
+[v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
+"81
+[v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
+"55 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"27 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\my_i2c.c
+[v _I2C_Start I2C_Start `(v  1 e 1 0 ]
+"36
+[v _I2C_RepeatedStart I2C_RepeatedStart `(v  1 e 1 0 ]
+"45
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+"52
+[v _I2C_Idle I2C_Idle `(v  1 e 1 0 ]
+"63
+[v _I2C_ReadByte I2C_ReadByte `(uc  1 e 1 0 ]
+"98
+[v _I2C_WriteByte I2C_WriteByte `(uc  1 e 1 0 ]
+"11 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\tmp122x.c
+[v _TMP112x_Init TMP112x_Init `(v  1 e 1 0 ]
+"21
+[v _TMP112x_ReadTemp TMP112x_ReadTemp `(f  1 e 4 0 ]
+"213
+[v _TMP112x_SetLowTempC TMP112x_SetLowTempC `(v  1 e 1 0 ]
+"266
+[v _TMP112x_SetHighTempC TMP112x_SetHighTempC `(v  1 e 1 0 ]
+"333
+[v _TMP112x_ReadLowTempC TMP112x_ReadLowTempC `(f  1 e 4 0 ]
+"388
+[v _TMP112x_ReadHighTempC TMP112x_ReadHighTempC `(f  1 e 4 0 ]
+"78 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X/mcc_generated_files/i2c1_driver.h
+[v _i2c1_driver_busCollisionISR i2c1_driver_busCollisionISR `*.37(v  1 e 2 0 ]
+"79
+[v _i2c1_driver_i2cISR i2c1_driver_i2cISR `*.37(v  1 e 2 0 ]
+[s S455 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 BCL1IF 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 TMR1GIF 1 0 :1:7 
+]
+"534 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f18326.h
+[u S464 . 1 `S455 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES464  1 e 1 @17 ]
+"1499
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1544
+[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+[s S977 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+]
+"1559
+[u S984 . 1 `S977 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES984  1 e 1 @142 ]
+[s S647 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 BCL1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 TMR1GIE 1 0 :1:7 
+]
+"1644
+[u S656 . 1 `S647 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES656  1 e 1 @145 ]
+"1875
+[v _WDTCON WDTCON `VEuc  1 e 1 @151 ]
+"2191
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"2236
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+"2779
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"2824
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"2895
+[v _RC1REG RC1REG `VEuc  1 e 1 @409 ]
+"2949
+[v _TX1REG TX1REG `VEuc  1 e 1 @410 ]
+"3010
+[v _SP1BRGL SP1BRGL `VEuc  1 e 1 @411 ]
+"3080
+[v _SP1BRGH SP1BRGH `VEuc  1 e 1 @412 ]
+"3134
+[v _RC1STA RC1STA `VEuc  1 e 1 @413 ]
+[s S497 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"3160
+[u S506 . 1 `S497 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES506  1 e 1 @413 ]
+"3314
+[v _TX1STA TX1STA `VEuc  1 e 1 @414 ]
+[s S476 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"3340
+[u S485 . 1 `S476 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES485  1 e 1 @414 ]
+"3494
+[v _BAUD1CON BAUD1CON `VEuc  1 e 1 @415 ]
+"3740
+[v _WPUA WPUA `VEuc  1 e 1 @524 ]
+"3790
+[v _WPUC WPUC `VEuc  1 e 1 @526 ]
+"3840
+[v _SSP1BUF SSP1BUF `VEuc  1 e 1 @529 ]
+"3845
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @529 ]
+"4094
+[v _SSP1ADD SSP1ADD `VEuc  1 e 1 @530 ]
+"4099
+[v _SSPADD SSPADD `VEuc  1 e 1 @530 ]
+"4348
+[v _SSP1MSK SSP1MSK `VEuc  1 e 1 @531 ]
+"4602
+[v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
+"4607
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @532 ]
+[s S713 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"4624
+[u S722 . 1 `S713 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES722  1 e 1 @532 ]
+"4679
+[v _SSPSTATbits SSPSTATbits `VES722  1 e 1 @532 ]
+"4724
+[v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
+"4733
+[v _SSPCON1 SSPCON1 `VEuc  1 e 1 @533 ]
+[s S621 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"4757
+[s S627 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S632 . 1 `S621 1 . 1 0 `S627 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES632  1 e 1 @533 ]
+"4882
+[v _SSPCON1bits SSPCON1bits `VES632  1 e 1 @533 ]
+"4994
+[v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @534 ]
+"4999
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @534 ]
+[s S690 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"5016
+[u S699 . 1 `S690 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES699  1 e 1 @534 ]
+"5071
+[v _SSPCON2bits SSPCON2bits `VES699  1 e 1 @534 ]
+"5946
+[v _ODCONA ODCONA `VEuc  1 e 1 @652 ]
+"5991
+[v _ODCONC ODCONC `VEuc  1 e 1 @654 ]
+"6445
+[v _SLRCONA SLRCONA `VEuc  1 e 1 @780 ]
+"6490
+[v _SLRCONC SLRCONC `VEuc  1 e 1 @782 ]
+"6856
+[v _INLVLA INLVLA `VEuc  1 e 1 @908 ]
+"6906
+[v _INLVLC INLVLC `VEuc  1 e 1 @910 ]
+"11575
+[v _PMD0 PMD0 `VEuc  1 e 1 @2321 ]
+"11620
+[v _PMD1 PMD1 `VEuc  1 e 1 @2322 ]
+"11682
+[v _PMD2 PMD2 `VEuc  1 e 1 @2323 ]
+"11722
+[v _PMD3 PMD3 `VEuc  1 e 1 @2324 ]
+"11784
+[v _PMD4 PMD4 `VEuc  1 e 1 @2325 ]
+"11818
+[v _PMD5 PMD5 `VEuc  1 e 1 @2326 ]
+"11927
+[v _OSCCON1 OSCCON1 `VEuc  1 e 1 @2329 ]
+"12067
+[v _OSCCON3 OSCCON3 `VEuc  1 e 1 @2331 ]
+"12164
+[v _OSCEN OSCEN `VEuc  1 e 1 @2333 ]
+"12210
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @2334 ]
+"12268
+[v _OSCFRQ OSCFRQ `VEuc  1 e 1 @2335 ]
+"13166
+[v _SSP1CLKPPS SSP1CLKPPS `VEuc  1 e 1 @3616 ]
+"13218
+[v _SSP1DATPPS SSP1DATPPS `VEuc  1 e 1 @3617 ]
+"13322
+[v _RXPPS RXPPS `VEuc  1 e 1 @3620 ]
+"13870
+[v _RA4PPS RA4PPS `VEuc  1 e 1 @3732 ]
+"13922
+[v _RA5PPS RA5PPS `VEuc  1 e 1 @3733 ]
+"14234
+[v _RC5PPS RC5PPS `VEuc  1 e 1 @3749 ]
+"55 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\doprnt.c
+[v _flags flags `i  1 s 2 flags ]
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"66
+[v _dbuf dbuf `[80]uc  1 s 80 dbuf ]
+"69
+[v _nout nout `i  1 s 2 nout ]
+[s S52 . 29 `uc 1 busy 1 0 :1:0 
+`uc 1 inUse 1 0 :1:1 
+`uc 1 bufferFree 1 0 :1:2 
+`uc 1 addressNACKCheck 1 0 :1:3 
+`uc 1 address 1 1 `*.1uc 1 data_ptr 1 2 `ui 1 data_length 2 3 `us 1 time_out 2 5 `us 1 time_out_value 2 7 `E6787 1 state 1 9 `E6628 1 error 1 10 `[6]*.37(E6633 1 callbackTable 12 11 `[6]*.1v 1 callbackPayload 6 23 ]
+"80 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/drivers/i2c_master.c
+[v _i2c_status i2c_status `S52  1 e 29 0 ]
+"400
+[v _fsmStateTable fsmStateTable `DC[16]*.37(E6787  1 e 32 0 ]
+[s S409 . 1 `uc 1 perr 1 0 :1:0 
+`uc 1 ferr 1 0 :1:1 
+`uc 1 oerr 1 0 :1:2 
+`uc 1 reserved 1 0 :5:3 
+]
+"52 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/eusart.c
+[u S414 . 1 `S409 1 . 1 0 `uc 1 status 1 0 ]
+[v _eusartRxLastError eusartRxLastError `VES414  1 e 1 0 ]
+"58
+[v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 e 2 0 ]
+"59
+[v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 e 2 0 ]
+"60
+[v _EUSART_ErrorHandler EUSART_ErrorHandler `*.37(v  1 e 2 0 ]
+"53 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"55
+[v main@temperature temperature `f  1 a 4 71 ]
+"87
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+{
+"7
+[v printf@ret ret `i  1 a 2 66 ]
+"8
+[v printf@ap ap `[1]*.4v  1 a 1 68 ]
+"5
+[v printf@fmt fmt `*.25DCuc  1 p 2 60 ]
+"13
+} 0
+"1368 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+[s S1243 _IO_FILE 0 ]
+[v vfprintf@fp fp `*.1S1243  1 a 1 wreg ]
+"1371
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 58 ]
+"1368
+[v vfprintf@fp fp `*.1S1243  1 a 1 wreg ]
+[v vfprintf@fmt fmt `*.25DCuc  1 p 2 74 ]
+[v vfprintf@ap ap `*.4*.4v  1 p 1 76 ]
+"1373
+"1368
+[v vfprintf@fp fp `*.1S1243  1 a 1 57 ]
+"1382
+} 0
+"670
+[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
+{
+[s S1243 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.1S1243  1 a 1 wreg ]
+"676
+[v vfpfcnvrt@f f `d  1 a 4 65 ]
+"672
+[v vfpfcnvrt@ct ct `[3]uc  1 a 3 69 ]
+[v vfpfcnvrt@c c `uc  1 a 1 72 ]
+"670
+[v vfpfcnvrt@fp fp `*.1S1243  1 a 1 wreg ]
+[v vfpfcnvrt@fmt fmt `*.4*.25uc  1 p 1 51 ]
+[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 52 ]
+"680
+"670
+[v vfpfcnvrt@fp fp `*.1S1243  1 a 1 73 ]
+"1365
+} 0
+"3 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\strncmp.c
+[v _strncmp strncmp `(i  1 e 2 0 ]
+{
+[v strncmp@_l _l `*.4DCuc  1 a 1 wreg ]
+"5
+[v strncmp@r r `*.25DCuc  1 a 2 7 ]
+[v strncmp@l l `*.4DCuc  1 a 1 9 ]
+"3
+[v strncmp@_l _l `*.4DCuc  1 a 1 wreg ]
+[v strncmp@_r _r `*.25DCuc  1 p 2 0 ]
+[v strncmp@n n `ui  1 p 2 2 ]
+"5
+[v strncmp@_l _l `*.4DCuc  1 a 1 6 ]
+"9
+} 0
+"319 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\doprnt.c
+[v _efgtoa efgtoa `(i  1 s 2 efgtoa ]
+{
+[s S1243 _IO_FILE 0 ]
+[v efgtoa@fp fp `*.1S1243  1 a 1 wreg ]
+"323
+[v efgtoa@u u `d  1 a 4 53 ]
+[v efgtoa@g g `d  1 a 4 45 ]
+[v efgtoa@l l `d  1 a 4 39 ]
+[v efgtoa@h h `d  1 a 4 35 ]
+[v efgtoa@ou ou `d  1 a 4 0 ]
+"322
+[v efgtoa@n n `i  1 a 2 51 ]
+[v efgtoa@e e `i  1 a 2 49 ]
+[v efgtoa@i i `i  1 a 2 43 ]
+[v efgtoa@w w `i  1 a 2 32 ]
+[v efgtoa@p p `i  1 a 2 28 ]
+[v efgtoa@sign sign `i  1 a 2 26 ]
+[v efgtoa@d d `i  1 a 2 24 ]
+[v efgtoa@ne ne `i  1 a 2 22 ]
+[v efgtoa@m m `i  1 a 2 20 ]
+[v efgtoa@pp pp `i  1 a 2 18 ]
+[v efgtoa@t t `i  1 a 2 16 ]
+"321
+[v efgtoa@mode mode `uc  1 a 1 34 ]
+[v efgtoa@nmode nmode `uc  1 a 1 31 ]
+"319
+[v efgtoa@fp fp `*.1S1243  1 a 1 wreg ]
+[v efgtoa@f f `d  1 p 4 42 ]
+[v efgtoa@c c `uc  1 p 1 46 ]
+"326
+"319
+[v efgtoa@fp fp `*.1S1243  1 a 1 30 ]
+"503
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\tolower.c
+[v _tolower tolower `(i  1 e 2 0 ]
+{
+[v tolower@c c `i  1 p 2 6 ]
+"8
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\isupper.c
+[v _isupper isupper `(i  1 e 2 0 ]
+{
+[v isupper@c c `i  1 p 2 0 ]
+"8
+} 0
+"7 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\strcpy.c
+[v _strcpy strcpy `(*.5uc  1 e 1 0 ]
+{
+[v strcpy@dest dest `*.5uc  1 a 1 wreg ]
+"13
+[v strcpy@s s `*.26DCuc  1 a 2 4 ]
+"14
+[v strcpy@d d `*.5uc  1 a 1 6 ]
+"7
+[v strcpy@dest dest `*.5uc  1 a 1 wreg ]
+[v strcpy@src src `*.26DCuc  1 p 2 0 ]
+"13
+[v strcpy@dest dest `*.5uc  1 a 1 7 ]
+"18
+} 0
+"72 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\doprnt.c
+[v _pad pad `(i  1 s 2 pad ]
+{
+[s S1243 _IO_FILE 0 ]
+[v pad@fp fp `*.1S1243  1 a 1 wreg ]
+"74
+[v pad@w w `i  1 a 2 12 ]
+[v pad@i i `i  1 a 2 10 ]
+"72
+[v pad@fp fp `*.1S1243  1 a 1 wreg ]
+[v pad@buf buf `*.5uc  1 p 1 7 ]
+[v pad@p p `i  1 p 2 8 ]
+"77
+"72
+[v pad@fp fp `*.1S1243  1 a 1 14 ]
+"95
+} 0
+"12 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+{
+[v strlen@s s `*.5DCuc  1 a 1 wreg ]
+"14
+[v strlen@a a `*.5DCuc  1 a 1 6 ]
+"12
+[v strlen@s s `*.5DCuc  1 a 1 wreg ]
+"14
+[v strlen@s s `*.5DCuc  1 a 1 7 ]
+"26
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+[v fputs@s s `*.5DCuc  1 a 1 wreg ]
+"11
+[v fputs@i i `i  1 a 2 4 ]
+"10
+[v fputs@c c `uc  1 a 1 3 ]
+"8
+[v fputs@s s `*.5DCuc  1 a 1 wreg ]
+[s S1721 _IO_FILE 5 `*.1uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
+[v fputs@fp fp `*.1S1721  1 p 1 11 ]
+"13
+[v fputs@s s `*.5DCuc  1 a 1 6 ]
+"19
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 3 ]
+[s S1721 _IO_FILE 5 `*.1uc 1 buffer 1 0 `i 1 count 2 1 `i 1 limit 2 3 ]
+[v fputc@fp fp `*.1S1721  1 p 1 5 ]
+"21
+} 0
+"146 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/eusart.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@txData txData `uc  1 a 1 wreg ]
+[v putch@txData txData `uc  1 a 1 wreg ]
+"148
+[v putch@txData txData `uc  1 a 1 2 ]
+"149
+} 0
+"132
+[v _EUSART_Write EUSART_Write `(v  1 e 1 0 ]
+{
+[v EUSART_Write@txData txData `uc  1 p 1 0 ]
+"139
+} 0
+"3 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\floorf.c
+[v _floorf floorf `(f  1 e 4 0 ]
+{
+[u S1655 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+"5
+[v floorf@u u `S1655  1 a 4 29 ]
+"7
+[v floorf@m m `ul  1 a 4 23 ]
+"6
+[v floorf@e e `i  1 a 2 27 ]
+"3
+[v floorf@x x `f  1 p 4 13 ]
+"4
+[v floorf@F514 F514 `S1655  1 s 4 F514 ]
+"27
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\__fpclassifyf.c
+[v ___fpclassifyf __fpclassifyf `(i  1 e 2 0 ]
+{
+[u S1655 . 4 `f 1 f 4 0 `ul 1 i 4 0 ]
+"6
+[v ___fpclassifyf@u u `S1655  1 a 4 2 ]
+"7
+[v ___fpclassifyf@e e `i  1 a 2 0 ]
+"4
+[v ___fpclassifyf@x x `f  1 p 4 0 ]
+"5
+[v ___fpclassifyf@F453 F453 `S1655  1 s 4 F453 ]
+"11
+} 0
+"43 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 10 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 9 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 0 ]
+"70
+} 0
+"242 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\sprcadd.c
+[v ___flsub __flsub `(d  1 e 4 0 ]
+{
+[v ___flsub@a a `d  1 p 4 26 ]
+[v ___flsub@b b `d  1 p 4 30 ]
+"250
+} 0
+"10
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"17
+[v ___fladd@grs grs `uc  1 a 1 11 ]
+"15
+[v ___fladd@bexp bexp `uc  1 a 1 10 ]
+"16
+[v ___fladd@aexp aexp `uc  1 a 1 9 ]
+"13
+[v ___fladd@signs signs `uc  1 a 1 8 ]
+"10
+[v ___fladd@b b `d  1 p 4 0 ]
+[v ___fladd@a a `d  1 p 4 4 ]
+"237
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\flneg.c
+[v ___flneg __flneg `(d  1 e 4 0 ]
+{
+[v ___flneg@f1 f1 `d  1 p 4 0 ]
+"20
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+{
+[v ___flge@ff1 ff1 `d  1 p 4 26 ]
+[v ___flge@ff2 ff2 `d  1 p 4 30 ]
+"19
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+{
+[v ___fleq@ff1 ff1 `d  1 p 4 0 ]
+[v ___fleq@ff2 ff2 `d  1 p 4 4 ]
+"12
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 7 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 0 ]
+"20
+[v ___fldiv@new_exp new_exp `i  1 a 2 5 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 12 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 11 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 4 ]
+"8
+[v ___fldiv@a a `d  1 p 4 0 ]
+[v ___fldiv@b b `d  1 p 4 4 ]
+"185
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 6 ]
+[v ___awmod@counter counter `uc  1 a 1 5 ]
+"5
+[v ___awmod@divisor divisor `i  1 p 2 0 ]
+[v ___awmod@dividend dividend `i  1 p 2 2 ]
+"34
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 7 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 6 ]
+[v ___awdiv@counter counter `uc  1 a 1 5 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"41
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+{
+"6
+[v atoi@n n `i  1 a 2 7 ]
+[v atoi@neg neg `i  1 a 2 0 ]
+"4
+[v atoi@s s `*.25DCuc  1 p 2 6 ]
+"16
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\isspace.c
+[v _isspace isspace `(i  1 e 2 0 ]
+{
+[v isspace@c c `i  1 p 2 0 ]
+"8
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\isdigit.c
+[v _isdigit isdigit `(i  1 e 2 0 ]
+{
+[v isdigit@c c `i  1 p 2 0 ]
+"8
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"21 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\tmp122x.c
+[v _TMP112x_ReadTemp TMP112x_ReadTemp `(f  1 e 4 0 ]
+{
+"25
+[v TMP112x_ReadTemp@digitalTemp digitalTemp `s  1 a 2 37 ]
+"23
+[v TMP112x_ReadTemp@_temp_lo _temp_lo `uc  1 a 1 36 ]
+"24
+[v TMP112x_ReadTemp@_temp_hi _temp_hi `uc  1 a 1 35 ]
+"62
+} 0
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S1518 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S1523 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S1526 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1518 1 fAsBytes 4 0 `S1523 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1526  1 a 4 20 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 14 ]
+[s S1595 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S1598 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S1595 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1598  1 a 2 24 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 19 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 18 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 13 ]
+"8
+[v ___flmul@b b `d  1 p 4 0 ]
+[v ___flmul@a a `d  1 p 4 4 ]
+"205
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+{
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 6 ]
+"5
+[v __Umul8_16@product product `ui  1 a 2 4 ]
+"4
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 0 ]
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 8 ]
+"60
+} 0
+"36 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\my_i2c.c
+[v _I2C_RepeatedStart I2C_RepeatedStart `(v  1 e 1 0 ]
+{
+"43
+} 0
+"63
+[v _I2C_ReadByte I2C_ReadByte `(uc  1 e 1 0 ]
+{
+[v I2C_ReadByte@acknowledge acknowledge `uc  1 a 1 wreg ]
+"65
+[v I2C_ReadByte@buffer_I2C buffer_I2C `uc  1 a 1 3 ]
+"63
+[v I2C_ReadByte@acknowledge acknowledge `uc  1 a 1 wreg ]
+"65
+[v I2C_ReadByte@acknowledge acknowledge `uc  1 a 1 2 ]
+"96
+} 0
+"11 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\tmp122x.c
+[v _TMP112x_Init TMP112x_Init `(v  1 e 1 0 ]
+{
+"19
+} 0
+"98 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\my_i2c.c
+[v _I2C_WriteByte I2C_WriteByte `(uc  1 e 1 0 ]
+{
+[v I2C_WriteByte@data_out data_out `uc  1 a 1 wreg ]
+[v I2C_WriteByte@data_out data_out `uc  1 a 1 wreg ]
+"100
+[v I2C_WriteByte@data_out data_out `uc  1 a 1 2 ]
+"128
+} 0
+"45
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+{
+"50
+} 0
+"27
+[v _I2C_Start I2C_Start `(v  1 e 1 0 ]
+{
+"34
+} 0
+"52
+[v _I2C_Idle I2C_Idle `(v  1 e 1 0 ]
+{
+"56
+} 0
+"50 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"59
+} 0
+"84 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/i2c1_driver.c
+[v _i2c1_driver_open i2c1_driver_open `(b  1 e 0 0 ]
+{
+"96
+} 0
+"75 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/mcc.c
+[v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
+{
+"79
+} 0
+"81
+[v _PMD_Initialize PMD_Initialize `(v  1 e 1 0 ]
+{
+"95
+} 0
+"55 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"112
+} 0
+"61 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"73
+} 0
+"66 C:\Users\Raphael\Google Drive\pvt\tmp112x_lib.X\mcc_generated_files/eusart.c
+[v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
+{
+"92
+} 0
+"170
+[v _EUSART_SetOverrunErrorHandler EUSART_SetOverrunErrorHandler `(v  1 e 1 0 ]
+{
+[v EUSART_SetOverrunErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+"172
+} 0
+"166
+[v _EUSART_SetFramingErrorHandler EUSART_SetFramingErrorHandler `(v  1 e 1 0 ]
+{
+[v EUSART_SetFramingErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+"168
+} 0
+"174
+[v _EUSART_SetErrorHandler EUSART_SetErrorHandler `(v  1 e 1 0 ]
+{
+[v EUSART_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+"176
+} 0
