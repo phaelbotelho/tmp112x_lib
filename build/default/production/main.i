@@ -10906,18 +10906,14 @@ void TMP112x_SetFault(uint8_t faultSetting);
 
 void TMP112x_SetAlertMode(_Bool mode);
 # 48 "main.c" 2
-
-
-
-
-
+# 60 "main.c"
 void main(void)
 {
     float temperature = 0;
 
 
     SYSTEM_Initialize();
-# 76 "main.c"
+# 83 "main.c"
     printf("TMP112x Temperature Sensor Lib Test\n");
 
     TMP112x_Init();
@@ -10927,6 +10923,6 @@ void main(void)
     {
         temperature = TMP112x_ReadTemp();
         printf("T: %3.2fC", temperature);
-        _delay((unsigned long)((50)*(16000000/4000.0)));
+        _delay((unsigned long)((100)*(16000000/4000.0)));
     }
 }

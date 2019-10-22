@@ -50,6 +50,9 @@
 // Ported from: https://github.com/sparkfun/SparkFun_TMP102_Arduino_Library/tree/master/src
 // Based on: https://github.com/ControlEverythingCommunity/TMP112/blob/master/C/TMP112.c
 // By Raphael Pereira
+// Good reference: https://github.com/ControlEverythingCommunity/TMP112/blob/master/C/TMP112.c
+//                 http://www.ti.com/lit/ds/symlink/tmp112.pdf
+//                 https://github.com/gsmrana/TMP112-Utility
 
 /*
                          Main application

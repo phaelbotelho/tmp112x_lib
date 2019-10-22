@@ -1032,53 +1032,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./mcc_generated_files/i2c1_driver.h: 79: void (*i2c1_driver_i2cISR)(void);
 [v _i2c1_driver_i2cISR `*F6713 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"53 main.c
-[; ;main.c: 53: void main(void)
+"60 main.c
+[; ;main.c: 60: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"54
-[; ;main.c: 54: {
+"61
+[; ;main.c: 61: {
 {
 [e :U _main ]
 [f ]
-"55
-[; ;main.c: 55:     float temperature = 0;
+"62
+[; ;main.c: 62:     float temperature = 0;
 [v _temperature `f ~T0 @X0 1 a ]
 [e = _temperature -> -> 0 `i `f ]
-"58
-[; ;main.c: 58:     SYSTEM_Initialize();
+"65
+[; ;main.c: 65:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"76
-[; ;main.c: 76:     printf("TMP112x Temperature Sensor Lib Test\n");
-[e ( _printf :s 1C ]
-"78
-[; ;main.c: 78:     TMP112x_Init();
-[e ( _TMP112x_Init ..  ]
-"79
-[; ;main.c: 79:     _delay((unsigned long)((50)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"81
-[; ;main.c: 81:     while(1)
-[e :U 929 ]
-"82
-[; ;main.c: 82:     {
-{
 "83
-[; ;main.c: 83:         temperature = TMP112x_ReadTemp();
-[e = _temperature ( _TMP112x_ReadTemp ..  ]
-"84
-[; ;main.c: 84:         printf("T: %3.2fC", temperature);
-[e ( _printf , (. :s 2C -> _temperature `d ]
+[; ;main.c: 83:     printf("TMP112x Temperature Sensor Lib Test\n");
+[e ( _printf :s 1C ]
 "85
-[; ;main.c: 85:         _delay((unsigned long)((50)*(16000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[; ;main.c: 85:     TMP112x_Init();
+[e ( _TMP112x_Init ..  ]
 "86
-[; ;main.c: 86:     }
+[; ;main.c: 86:     _delay((unsigned long)((50)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"88
+[; ;main.c: 88:     while(1)
+[e :U 929 ]
+"89
+[; ;main.c: 89:     {
+{
+"90
+[; ;main.c: 90:         temperature = TMP112x_ReadTemp();
+[e = _temperature ( _TMP112x_ReadTemp ..  ]
+"91
+[; ;main.c: 91:         printf("T: %3.2fC", temperature);
+[e ( _printf , (. :s 2C -> _temperature `d ]
+"92
+[; ;main.c: 92:         _delay((unsigned long)((100)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"93
+[; ;main.c: 93:     }
 }
 [e :U 928 ]
 [e $U 929  ]
 [e :U 930 ]
-"87
-[; ;main.c: 87: }
+"94
+[; ;main.c: 94: }
 [e :UE 927 ]
 }
 [p f _printf 8495104 ]
